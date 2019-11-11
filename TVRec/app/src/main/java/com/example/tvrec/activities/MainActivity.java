@@ -1,10 +1,9 @@
 package com.example.tvrec.activities;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.info_setting) {
+            goToInfo();
+        }
+        if (id == R.id.tags_setting) {
+            goToTagsManagement();
         }
 
         return super.onOptionsItemSelected(item);
@@ -54,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void begin(){
         Intent i = new Intent(this, ChoiceActivity.class);
+        startActivity(i);
+        onPause();
+    }
+    public void goToInfo(){
+        Intent i = new Intent(this, InfoActivity.class);
+        startActivity(i);
+        onPause();
+    }
+    public void goToTagsManagement(){
+        Intent i = new Intent(this, TagsManagerActivity.class);
         startActivity(i);
         onPause();
     }

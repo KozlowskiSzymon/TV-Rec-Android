@@ -4,7 +4,7 @@
             "outputFile": "/home/szymon/Android-studio/StudioProjects/TVRec/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/f1c22559ea82c7dcf13a4390a13455b7/res/values-v24/values-v24.xml",
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-1.1.0.aar/5021b581bee83585e62604a4dd8907cc/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

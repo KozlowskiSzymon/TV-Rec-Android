@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TVRec</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Info</string>
+    <string name="tags">Tagi</string>
+    <string name="user_tags"><u>Dodaj tag użytkownika</u></string>
+    <string name="world_tags"><u>Dodaj tag</u></string>
+    <string name="user_tags_desc"><u>Dodaje tag do puli tagów aplikacji i listy tagów użytkownika.</u></string>
+    <string name="world_tags_desc"><u>Dodaje tag do puli tagów aplikacji.</u></string>
 </resources>

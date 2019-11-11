@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/InfoLayout"
+    android:orientation="vertical"
+    tools:context=".activities.InfoActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aby rozpocząć korzystanie z aplikacji naciśnij przycisk start na ekranie startowym."
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_margin="5dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/info1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wybierz jeden z podanych gatunków filmowych aby zobaczyć listę rekomendowanych programów."
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_margin="5dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/info2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Poczekaj aż lista załaduje się. Z uwagi na ilość programów w danym gatunku może to potrwać nawet kilkanaście sekund."
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_margin="5dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/info3"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lista prezentuje wyniki rekomendacji. Najbardziej trafna znajduje się na górze listy. W prawym górnym rogu każdego rekordu prezentowany jest kanał na jakim program jest/będzie emitowany."
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_margin="5dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/info4"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Używaj przycisków do oceny rekomendacji. Pozwoli to zaktualizować twoje preferencje i poprawić jakoś przyszłych rekomendacji."
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_margin="5dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/info5"/>
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+
+</LinearLayout>
