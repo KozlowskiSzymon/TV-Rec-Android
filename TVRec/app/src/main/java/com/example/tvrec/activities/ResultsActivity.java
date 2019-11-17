@@ -91,7 +91,6 @@ public class ResultsActivity extends AppCompatActivity {
                         }
                         progressBar.setVisibility(View.GONE);
                         layout.setVisibility(View.VISIBLE);
-                        System.out.println("|||||||||||||||||||||||||||||||||||" + results.size());
                     }
                 });
             }

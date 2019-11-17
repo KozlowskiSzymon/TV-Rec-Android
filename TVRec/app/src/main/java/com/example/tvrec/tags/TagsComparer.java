@@ -24,12 +24,11 @@ public class TagsComparer {
     }
 
     private Program countMatchingTags(Program program){
-        ArrayList<String> userTags = tagsHandler.getUserTags();
+        ArrayList<String> userTags = tagsHandler.readUserTagsFromPrefs();
         int count = 0;
         for (String programTag: program.getTags()){
             if(userTags.contains(programTag)){
                 count++;
-                System.out.println("++++++++++++++++++++++"+program.title +"+++++++++++++++++++++++++++++"+ programTag);
             }
 
         }

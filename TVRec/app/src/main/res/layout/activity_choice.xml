@@ -21,39 +21,42 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/num1"/>
+                android:background="@drawable/num1" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu"/>
+                android:text="Tytuł filmu" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/num1"/>
+                android:background="@drawable/num1" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu"/>
+                android:text="Tytuł filmu" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/num1"/>
+                android:background="@drawable/num1" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu"/>
+                android:text="Tytuł filmu" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/num1"/>
+                android:background="@drawable/num1" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu"/>
+                android:text="Tytuł filmu" />
 
 
         </LinearLayout>

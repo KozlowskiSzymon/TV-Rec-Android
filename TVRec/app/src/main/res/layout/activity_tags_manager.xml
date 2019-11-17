@@ -30,11 +30,14 @@
             android:layout_margin="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userTagInput"
+                android:inputType="textImeMultiLine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/userTagAddButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -80,11 +83,14 @@
             android:layout_margin="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/globalTagInput"
+                android:inputType="textImeMultiLine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/globalTagAddButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"

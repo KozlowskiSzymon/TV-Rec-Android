@@ -10,12 +10,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.tvrec.R;
+import com.example.tvrec.utils.TagsHandler;
 
 public class ChoiceActivity extends AppCompatActivity {
 
-    private int onClickCounter = 0;
-    Button firstChoice;
-    Button secondChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +24,7 @@ public class ChoiceActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
+            TagsHandler.initLists(this);
             SharedPreferences.Editor ed = pref.edit();
             ed.putBoolean("activity_executed", true);
             ed.apply();

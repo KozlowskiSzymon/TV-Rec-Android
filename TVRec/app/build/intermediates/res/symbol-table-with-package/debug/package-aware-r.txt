@@ -1563,12 +1563,13 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id firstChoiceButton
 id fitToContents
 id fixed
 id forever
 id ghost_view
 id ghost_view_holder
+id globalTagAddButton
+id globalTagInput
 id gone
 id group_divider
 id groups
@@ -1672,7 +1673,6 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
-id secondChoiceButton
 id select_dialog_listview
 id selected
 id shortcut
@@ -1741,6 +1741,8 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userTagAddButton
+id userTagInput
 id view_offset_helper
 id visible
 id westernButton
