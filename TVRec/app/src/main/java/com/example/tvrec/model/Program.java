@@ -12,7 +12,8 @@ public class Program implements Comparable<Program>, Serializable {
     public String score;
     public String descriptions;
     private int tagsCount;
-    ArrayList<String> tags;
+    ArrayList<Tag> tags;
+    private double wage;
 
     public Program(String title, String yearOfProduction, String channel, String score, String descriptions) {
         this.title = title;
@@ -32,20 +33,28 @@ public class Program implements Comparable<Program>, Serializable {
         this.tagsCount = tagsCount;
     }
 
+    public double getWage() {
+        return wage;
+    }
+
+    public void setWage(double wage) {
+        this.wage = wage;
+    }
+
     public String getDescriptions() {
         return descriptions;
     }
 
-    public ArrayList<String> getTags() {
+    public ArrayList<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(ArrayList<String> tags) {
+    public void setTags(ArrayList<Tag> tags) {
         this.tags = tags;
     }
 
     @Override
     public int compareTo(Program o) {
-        return this.tagsCount - o.getTagsCount();
+        return Double.compare(this.wage - o.getWage(), 0.0);
     }
 }

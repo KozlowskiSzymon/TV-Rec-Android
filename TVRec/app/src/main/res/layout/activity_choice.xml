@@ -24,6 +24,7 @@
                 android:background="@drawable/num1" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/firstButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tytuł filmu" />

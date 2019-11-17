@@ -2,14 +2,18 @@ package com.example.tvrec.utils;
 
 import android.content.Context;
 
+import com.example.tvrec.model.Tag;
 import com.example.tvrec.tags.TinyDB;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TagsHandler {
 
@@ -33,13 +37,13 @@ public class TagsHandler {
     }
 
     public static void readUserTagsFromTxt(Context context){
-        ArrayList<String> userTags = new ArrayList<>();
+        ArrayList<Tag> userTags = new ArrayList<>();
         try {
             String word;
             Charset charSet = Charset.forName(CHARSET);
             BufferedReader reader = new BufferedReader(new InputStreamReader(context.getAssets().open(USER_TAGS_PATH),charSet));
             while ((word = reader.readLine()) != null) {
-                userTags.add(word);
+                userTags.add(new Tag(word));
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -47,55 +51,51 @@ public class TagsHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tinydb.putListString("userTags", userTags);
+        tinydb.putListTags("userTags", userTags);
     }
 
-    public ArrayList<String> readUserTagsFromPrefs(){
-        ArrayList<String> toReturn = tinydb.getListString("userTags");
-        for(String str: toReturn)
-            System.out.println(str);
-        return toReturn;
+    public ArrayList<Tag> readUserTagsFromPrefs(){
+        return tinydb.getListTags("userTags");
     }
 
-    public ArrayList<String> readGlobalTagsFromPrefs(){
-        ArrayList<String> toReturn = tinydb.getListString("keyWords");
-        return toReturn;
+    public ArrayList<Tag> readGlobalTagsFromPrefs(){
+        return tinydb.getListTags("keyWords");
     }
 
     public static void readGlobalTagsFromTxt(Context context){
-        ArrayList<String> globalTags = new ArrayList<>();
+        ArrayList<Tag> globalTags = new ArrayList<>();
         try {
             String word;
             Charset charSet = Charset.forName(CHARSET);
             BufferedReader reader = new BufferedReader(new InputStreamReader(context.getAssets().open(KEY_WORDS),charSet));
             while ((word = reader.readLine()) != null)
-                globalTags.add(word);
+                globalTags.add(new Tag(word));
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tinydb.putListString("keyWords", globalTags);
+        tinydb.putListTags("keyWords", globalTags);
     }
 
 
     public void addUserTag(String tag){
-        ArrayList<String> userTags = tinydb.getListString("userTags");
+        ArrayList<Tag> userTags = tinydb.getListTags("userTags");
         tinydb.remove("userTags");
         if(!userTags.contains(tag)){
-            userTags.add(tag);
-            tinydb.putListString("userTags", userTags);
+            userTags.add(new Tag(tag, 1.0/userTags.size()));
+            tinydb.putListTags("userTags", userTags);
         }
         addGlobalTag(tag);
     }
 
     public void addGlobalTag(String tag){
-        ArrayList<String> globalTags = tinydb.getListString("keyWords");
+        ArrayList<Tag> globalTags = tinydb.getListTags("keyWords");
         tinydb.remove("keyWords");
         if(!globalTags.contains(tag)){
-            globalTags.add(tag);
-            tinydb.putListString("keyWords", globalTags);
+            globalTags.add(new Tag(tag));
+            tinydb.putListTags("keyWords", globalTags);
         }
 
     }

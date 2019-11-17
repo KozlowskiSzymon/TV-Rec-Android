@@ -19,8 +19,9 @@ public class ChoiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences pref = getSharedPreferences("ActivityPREF", Context.MODE_PRIVATE);
+        final Intent intent = new Intent(this, GenreActivity.class);
+
         if(pref.getBoolean("activity_executed", false)){
-            Intent intent = new Intent(this, GenreActivity.class);
             startActivity(intent);
             finish();
         } else {
@@ -30,6 +31,14 @@ public class ChoiceActivity extends AppCompatActivity {
             ed.apply();
         }
         setContentView(R.layout.activity_choice);
+        Button btn = findViewById(R.id.firstButton);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 

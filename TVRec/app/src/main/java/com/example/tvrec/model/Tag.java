@@ -1,9 +1,15 @@
 package com.example.tvrec.model;
 
-public class Tag {
+import java.io.Serializable;
 
-    String word;
-    Double wage;
+public class Tag implements Serializable {
+
+    private String word;
+    private Double wage;
+
+    public Tag(){
+
+    }
 
     public Tag(String word, Double wage) {
         this.word = word;

@@ -4,6 +4,7 @@ package com.example.tvrec.tags;
 import android.content.Context;
 
 import com.example.tvrec.model.Program;
+import com.example.tvrec.model.Tag;
 import com.example.tvrec.utils.TagsHandler;
 
 import java.util.ArrayList;
@@ -19,20 +20,26 @@ public class TagsComparer {
 
     public void setInRecommendedOrder(ArrayList<Program> taggedPrograms){
         for (Program program: taggedPrograms)
-            countMatchingTags(program);
+            countWage(program);
         Collections.sort(taggedPrograms,Collections.reverseOrder());
     }
 
-    private Program countMatchingTags(Program program){
-        ArrayList<String> userTags = tagsHandler.readUserTagsFromPrefs();
+    private Program countWage(Program program){
+        ArrayList<Tag> userTags = tagsHandler.readUserTagsFromPrefs();
         int count = 0;
-        for (String programTag: program.getTags()){
-            if(userTags.contains(programTag)){
-                count++;
+        double wage = 0.0;
+        for (Tag programTag: program.getTags()){
+            for (Tag userTag: userTags) {
+                if (programTag.getWord().equals(userTag.getWord())) {
+                    count++;
+                    wage += userTag.getWage();
+                }
             }
 
         }
+        System.out.println("++++++++++++++++"+ userTags.size() +"+++++++++++++++++++++++++++++++count:" + count +" "+ wage + " " + program.title);
         program.setTagsCount(count);
+        program.setWage(wage);
         return program;
     }
 
