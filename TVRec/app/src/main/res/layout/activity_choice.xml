@@ -20,44 +20,44 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/num1" />
+                android:layout_height="400dp"
+                android:background="@drawable/piraci" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/firstButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu" />
+                android:text="Piraci z Karaibów: Klątwa czarnej perły" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/num1" />
+                android:layout_height="400dp"
+                android:background="@drawable/oceans" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu" />
+                android:text="Ocean's eleven" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/num1" />
+                android:layout_height="400dp"
+                android:background="@drawable/highs" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu" />
+                android:text="Wichrowe wzgórza" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/num1" />
+                android:layout_height="400dp"
+                android:background="@drawable/seven" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tytuł filmu" />
+                android:text="Siedmiu wspaniałych" />
 
 
         </LinearLayout>

@@ -1385,6 +1385,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable highs
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
 drawable ic_edit_black_24dp
@@ -1430,7 +1431,10 @@ drawable notok
 drawable num1
 drawable num2
 drawable num3
+drawable oceans
 drawable ok
+drawable piraci
+drawable seven
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1889,6 +1893,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap ic_tv_launcher
 plurals mtrl_badge_content_description
+raw polish
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

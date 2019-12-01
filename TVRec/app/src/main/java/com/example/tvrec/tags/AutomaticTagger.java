@@ -1,0 +1,62 @@
+package com.example.tvrec.tags;
+
+
+import com.example.tvrec.model.Tag;
+import com.example.tvrec.utils.DictionaryHandler;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class AutomaticTagger {
+
+    private DictionaryHandler dictionaryHandler;
+
+    public AutomaticTagger() {
+        this.dictionaryHandler = new DictionaryHandler();
+    }
+
+    public ArrayList<Tag> tagAutomatically(String description){
+        ArrayList<Tag> tags = new ArrayList<>();
+        description = description.replaceAll("\\.","");
+        description = description.replaceAll("\\)","");
+        description = description.replaceAll("\\(","");
+        String[] wordsList=description.split(" ");//Split the word from String
+        if (description.contains("Brak programu w bazie"))
+            return null;
+
+        ArrayList<String> words = new ArrayList<>();
+        for (String word: wordsList){
+            if(dictionaryHandler.tagsOf(word).size() > 0)
+                if (dictionaryHandler.tagsOf(word).get(0).contains("subst")){
+                    if(dictionaryHandler.stemsOf(word).size() > 0)
+                        words.add(dictionaryHandler.stemsOf(word).get(0));
+                }
+        }
+
+        double wrc=1;//Variable for getting Repeated word count
+
+        for(int i=0;i<words.size();i++)		//Outer loop for Comparison
+        {
+            for(int j=i+1;j<words.size();j++)	//Inner loop for Comparison
+            {
+
+                if(words.get(i).equals(words.get(j)))	//Checking for both strings are equal
+                {
+                    wrc=wrc+1;				//if equal increment the count
+                    words.set(j, "0");			//Replace repeated words by zero
+                }
+            }
+            if(words.get(i) !="0") {
+                double wage = wrc / words.size();
+                tags.add(new Tag(words.get(i), wage));
+            }
+            wrc=1;
+
+        }
+        Collections.sort(tags,Collections.reverseOrder());
+
+        return tags;
+
+    }
+}
+

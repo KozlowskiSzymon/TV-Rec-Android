@@ -2,7 +2,7 @@ package com.example.tvrec.model;
 
 import java.io.Serializable;
 
-public class Tag implements Serializable {
+public class Tag implements Serializable, Comparable<Tag> {
 
     private String word;
     private Double wage;
@@ -35,5 +35,10 @@ public class Tag implements Serializable {
 
     public void setWage(Double wage) {
         this.wage = wage;
+    }
+
+    @Override
+    public int compareTo(Tag o) {
+        return Double.compare(this.wage - o.getWage(), 0.0);
     }
 }

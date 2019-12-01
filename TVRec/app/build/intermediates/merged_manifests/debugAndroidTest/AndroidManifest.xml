@@ -3,7 +3,7 @@
     package="com.example.tvrec.test" >
 
     <uses-sdk
-        android:minSdkVersion="21"
+        android:minSdkVersion="26"
         android:targetSdkVersion="28" />
 
     <instrumentation

@@ -84,11 +84,6 @@ public class ResultsActivity extends AppCompatActivity {
                     public void run() {
                         programAdapter = new ProgramAdapter(results);
                         layout.setAdapter(programAdapter);
-                        if(results.size() == 0){
-                            TextView error = new TextView(layout.getContext());
-                            error.setText("Brak programów spełniających kryteria wyszukiwania");
-                            layout.addView(error);
-                        }
                         progressBar.setVisibility(View.GONE);
                         layout.setVisibility(View.VISIBLE);
                     }
