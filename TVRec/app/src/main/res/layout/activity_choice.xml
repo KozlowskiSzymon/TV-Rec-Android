@@ -17,47 +17,225 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="@drawable/piraci" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/piraci"/>
+
+            </LinearLayout>
+
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/firstButton"
+                android:id="@+id/choiceButton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Piraci z Karaibów: Klątwa czarnej perły" />
 
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="@drawable/oceans" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/oceans"/>
+
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ocean's eleven" />
 
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="@drawable/highs" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/highs"/>
+
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Wichrowe wzgórza" />
 
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:background="@drawable/seven" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Siedmiu wspaniałych" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siedmiu wspaniałych" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siedmiu wspaniałych" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siedmiu wspaniałych" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siedmiu wspaniałych" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siedmiu wspaniałych" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/seven"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choiceButton10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Siedmiu wspaniałych" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/readyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_margin="20dp"
+                android:text="Gotowe" />
 
 
         </LinearLayout>

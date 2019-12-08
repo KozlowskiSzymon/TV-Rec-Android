@@ -84,10 +84,22 @@ public class TagsHandler {
         ArrayList<Tag> userTags = tinydb.getListTags("userTags");
         tinydb.remove("userTags");
         if(!userTags.contains(tag)){
-            userTags.add(new Tag(tag, 1.0/userTags.size()));
+            userTags.add(new Tag(tag));
             tinydb.putListTags("userTags", userTags);
         }
         addGlobalTag(tag);
+    }
+
+    public void addUserTag(List<Tag> list){
+        ArrayList<Tag> userTags = tinydb.getListTags("userTags");
+        tinydb.remove("userTags");
+        list.forEach(tag -> {
+            if(!userTags.contains(tag)){
+                userTags.add(tag);
+            }
+        });
+        tinydb.putListTags("userTags", userTags);
+        addGlobalTag(userTags);
     }
 
     public void addGlobalTag(String tag){
@@ -98,6 +110,17 @@ public class TagsHandler {
             tinydb.putListTags("keyWords", globalTags);
         }
 
+    }
+
+    public void addGlobalTag(ArrayList<Tag> list) {
+        ArrayList<Tag> globalTags = tinydb.getListTags("keyWords");
+        tinydb.remove("keyWords");
+        list.forEach(tag -> {
+            if(!globalTags.contains(tag)){
+                globalTags.add(tag);
+            }
+        });
+        tinydb.putListTags("keyWords", globalTags);
     }
 
 }

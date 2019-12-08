@@ -1506,6 +1506,7 @@ id add
 id alertTitle
 id all
 id always
+id approveButton
 id async
 id auto
 id barrier
@@ -1527,6 +1528,16 @@ id chip1
 id chip2
 id chip3
 id chip_group
+id choiceButton1
+id choiceButton10
+id choiceButton2
+id choiceButton3
+id choiceButton4
+id choiceButton5
+id choiceButton6
+id choiceButton7
+id choiceButton8
+id choiceButton9
 id chronometer
 id clear_text
 id clip_horizontal
@@ -1567,7 +1578,6 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id firstButton
 id fitToContents
 id fixed
 id forever
@@ -1653,7 +1663,9 @@ id progressBar1
 id progress_circular
 id progress_horizontal
 id radio
+id readyButton
 id recyclerView
+id rejectButton
 id resultsLayout
 id right
 id right_icon

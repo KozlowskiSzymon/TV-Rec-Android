@@ -6,6 +6,7 @@ import com.example.tvrec.utils.DictionaryHandler;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class AutomaticTagger {
 
@@ -26,11 +27,12 @@ public class AutomaticTagger {
 
         ArrayList<String> words = new ArrayList<>();
         for (String word: wordsList){
-            if(dictionaryHandler.tagsOf(word).size() > 0)
-                if (dictionaryHandler.tagsOf(word).get(0).contains("subst")){
-                    if(dictionaryHandler.stemsOf(word).size() > 0)
-                        words.add(dictionaryHandler.stemsOf(word).get(0));
-                }
+            if (word.length() > 2)
+                if(dictionaryHandler.tagsOf(word).size() > 0)
+                    if (dictionaryHandler.tagsOf(word).get(0).contains("subst")){
+                        if(dictionaryHandler.stemsOf(word).size() > 0)
+                            words.add(dictionaryHandler.stemsOf(word).get(0));
+                    }
         }
 
         double wrc=1;//Variable for getting Repeated word count
@@ -55,7 +57,14 @@ public class AutomaticTagger {
         }
         Collections.sort(tags,Collections.reverseOrder());
 
-        return tags;
+        ArrayList<Tag> toReturn = new ArrayList<>();
+        if(tags.size() > 10) {
+            for (int i = 0; i < 10; i++) {
+                toReturn.add(tags.get(i));
+            }
+        }else
+            return tags;
+        return toReturn;
 
     }
 }

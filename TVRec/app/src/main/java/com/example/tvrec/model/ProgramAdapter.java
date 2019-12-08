@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.tvrec.R;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramViewHolder>{
 
-    ArrayList<Program> results;
+    private ArrayList<Program> results;
     @NonNull
     @Override
     public ProgramViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -31,6 +32,16 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramV
 
         programViewHolder.title.setText(program.title);
         programViewHolder.channel.setText(program.channel);
+        programViewHolder.approvedButton.setOnClickListener(view -> {
+            program.getTags().forEach(tag -> {
+                System.out.println(tag.getWord() + " " + tag.getWage());
+            });
+        });
+        programViewHolder.rejectButton.setOnClickListener(view -> {
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++reject");
+        });
+
+
     }
 
     @Override
@@ -42,10 +53,14 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramV
         // each data item is just a string in this case
         public TextView title;
         public TextView channel;
+        public Button approvedButton;
+        public Button rejectButton;
         public ProgramViewHolder(View v) {
             super(v);
             title = v.findViewById(R.id.title);
             channel = v.findViewById(R.id.channel);
+            approvedButton = v.findViewById(R.id.approveButton);
+            rejectButton = v.findViewById(R.id.rejectButton);
 
         }
     }
