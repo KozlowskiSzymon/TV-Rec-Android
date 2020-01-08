@@ -4,13 +4,11 @@ import android.content.Context;
 
 import com.example.tvrec.model.Tag;
 import com.example.tvrec.tags.TinyDB;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +60,7 @@ public class TagsHandler {
         return tinydb.getListTags("keyWords");
     }
 
-    public static void readGlobalTagsFromTxt(Context context){
+    private static void readGlobalTagsFromTxt(Context context){
         ArrayList<Tag> globalTags = new ArrayList<>();
         try {
             String word;
@@ -82,8 +80,13 @@ public class TagsHandler {
 
     public void addUserTag(String tag){
         ArrayList<Tag> userTags = tinydb.getListTags("userTags");
+        Boolean isOnList = false;
         tinydb.remove("userTags");
-        if(!userTags.contains(tag)){
+        for (Tag tag1 : userTags) {
+            if (tag1.getWord().equals(tag))
+                isOnList = true;
+        }
+        if (!isOnList){
             userTags.add(new Tag(tag));
             tinydb.putListTags("userTags", userTags);
         }
@@ -93,13 +96,60 @@ public class TagsHandler {
     public void addUserTag(List<Tag> list){
         ArrayList<Tag> userTags = tinydb.getListTags("userTags");
         tinydb.remove("userTags");
-        list.forEach(tag -> {
-            if(!userTags.contains(tag)){
+        for (Tag tag : list) {
+            Boolean isOnList = false;
+            for (Tag listTag : userTags){
+                if (listTag.getWord().equals(tag.getWord()))
+                    isOnList = true;
+            }
+            if (!isOnList) {
                 userTags.add(tag);
             }
-        });
+        }
         tinydb.putListTags("userTags", userTags);
-        addGlobalTag(userTags);
+    }
+
+    public void addTagsFromApprovedRecommendation(List<Tag> list){
+        ArrayList<Tag> userTags = tinydb.getListTags("userTags");
+        tinydb.remove("userTags");
+        if(list != null) {
+            for (Tag tag : list) {
+                if (listContains(userTags, tag)) {
+                    for (Tag userTag : userTags)
+                        if (userTag.getWord().equals(tag.getWord()))
+                            userTag.setWage(userTag.getWage() + 1);
+                } else {
+                    userTags.add(tag);
+                }
+
+            }
+            tinydb.putListTags("userTags", userTags);
+        }
+    }
+
+    private boolean listContains(List<Tag> list, Tag tag){
+
+        for (Tag listTag : list){
+            if (listTag.getWord().equals(tag.getWord()))
+                return true;
+        }
+        return false;
+    }
+
+    public void removeTagsFromRejectedRecommendation(List<Tag> list){
+        ArrayList<Tag> userTags = tinydb.getListTags("userTags");
+        tinydb.remove("userTags");
+        for (Tag tag : list) {
+            for (Tag listTag : userTags)
+            if (listTag.getWord().equals(tag.getWord())) {
+                double wage = listTag.getWage();
+                if (wage == 1)
+                    userTags.remove(listTag);
+                else
+                    listTag.setWage(listTag.getWage() - 1);
+            }
+        }
+        tinydb.putListTags("userTags", userTags);
     }
 
     public void addGlobalTag(String tag){

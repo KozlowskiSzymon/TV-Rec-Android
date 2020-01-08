@@ -1,12 +1,11 @@
 package com.example.tvrec.activities;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tvrec.R;
 import com.example.tvrec.utils.TagsHandler;
@@ -27,20 +26,14 @@ public class TagsManagerActivity extends AppCompatActivity {
         final TextInputEditText globalInput = findViewById(R.id.globalTagInput);
         Button userAddButton = findViewById(R.id.userTagAddButton);
         Button globalAddButton = findViewById(R.id.globalTagAddButton);
-        userAddButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tagsHandler.addUserTag(userInput.getText().toString());
-                userInput.setText("");
-            }
+        userAddButton.setOnClickListener(view -> {
+            tagsHandler.addUserTag(userInput.getText().toString());
+            userInput.setText("");
         });
 
-        globalAddButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tagsHandler.addGlobalTag(globalInput.getText().toString());
-                globalInput.setText("");
-            }
+        globalAddButton.setOnClickListener(view -> {
+            tagsHandler.addGlobalTag(globalInput.getText().toString());
+            globalInput.setText("");
         });
 
     }

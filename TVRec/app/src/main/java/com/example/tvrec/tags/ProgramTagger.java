@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.example.tvrec.model.Program;
 import com.example.tvrec.model.Tag;
-import com.example.tvrec.utils.DictionaryHandler;
 import com.example.tvrec.utils.TagsHandler;
 
 import java.util.ArrayList;
@@ -22,14 +21,14 @@ public class ProgramTagger {
     }
 
     private ArrayList<Tag> getTagsFromDescription(String description){
-        ArrayList<Tag> textTags;
+        ArrayList<Tag> textTags = new ArrayList<>();
         textTags = automaticTagger.tagAutomatically(description);
-        for (int i = 0; i < keyWordsList.size(); i++){
-            if (description.contains(keyWordsList.get(i).getWord())) {
-                if (!textTags.contains(keyWordsList.get(i)))
-                    textTags.add(keyWordsList.get(i));
-            }
-        }
+        //tagowanie z listy globalnej
+//        for (Tag tag: keyWordsList){
+//            if (description.contains(tag.getWord())) {
+//                    textTags.add(tag);
+//            }
+//        }
 
 
         return textTags;

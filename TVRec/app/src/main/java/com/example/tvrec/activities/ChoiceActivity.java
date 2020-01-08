@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -35,15 +36,16 @@ public class ChoiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences pref = getSharedPreferences("ActivityPREF", Context.MODE_PRIVATE);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = prefs.getBoolean("activity_executed", false);
         final Intent intent = new Intent(this, GenreActivity.class);
 
-        if(pref.getBoolean("activity_executed", false)){
+        if(previouslyStarted){
             startActivity(intent);
             finish();
         } else {
             TagsHandler.initLists(this);
-            SharedPreferences.Editor ed = pref.edit();
+            SharedPreferences.Editor ed = prefs.edit();
             ed.putBoolean("activity_executed", true);
             ed.apply();
         }
@@ -51,53 +53,66 @@ public class ChoiceActivity extends AppCompatActivity {
         tagList = tagsHandler.readUserTagsFromPrefs();
         setContentView(R.layout.activity_choice);
 
-        Button choice1 = findViewById(R.id.choiceButton1);
-        choice1.setOnClickListener(view -> {
-            tagList.add(tag1);
-        });
-        Button choice2 = findViewById(R.id.choiceButton2);
-        choice2.setOnClickListener(view -> {
-            tagList.add(tag2);
-        });
-        Button choice3 = findViewById(R.id.choiceButton3);
-        choice3.setOnClickListener(view -> {
-            tagList.add(tag3);
-        });
-        Button choice4 = findViewById(R.id.choiceButton4);
-        choice4.setOnClickListener(view -> {
-            tagList.add(tag4);
-        });
-        Button choice5 = findViewById(R.id.choiceButton5);
-        choice5.setOnClickListener(view -> {
-            tagList.add(tag5);
-        });
-        Button choice6 = findViewById(R.id.choiceButton6);
-        choice6.setOnClickListener(view -> {
-            tagList.add(tag6);
-        });
-        Button choice7 = findViewById(R.id.choiceButton7);
-        choice7.setOnClickListener(view -> {
-            tagList.add(tag7);
-        });
-        Button choice8 = findViewById(R.id.choiceButton8);
-        choice8.setOnClickListener(view -> {
-            tagList.add(tag8);
-        });
-        Button choice9 = findViewById(R.id.choiceButton9);
-        choice9.setOnClickListener(view -> {
-            tagList.add(tag9);
-        });
-        Button choice10 = findViewById(R.id.choiceButton10);
-        choice10.setOnClickListener(view -> {
-            tagList.add(tag10);
-        });
 
         Button btn = findViewById(R.id.readyButton);
+        btn.setEnabled(false);
         btn.setOnClickListener(view -> {
             tagsHandler.addUserTag(tagList);
             startActivity(intent);
             finish();
         });
+
+        Button choice1 = findViewById(R.id.choiceButton1);
+        choice1.setOnClickListener(view -> {
+//            tagList.add(tag1);
+            btn.setEnabled(true);
+        });
+        Button choice2 = findViewById(R.id.choiceButton2);
+        choice2.setOnClickListener(view -> {
+            tagList.add(tag2);
+            btn.setEnabled(true);
+        });
+        Button choice3 = findViewById(R.id.choiceButton3);
+        choice3.setOnClickListener(view -> {
+            tagList.add(tag3);
+            btn.setEnabled(true);
+        });
+        Button choice4 = findViewById(R.id.choiceButton4);
+        choice4.setOnClickListener(view -> {
+            tagList.add(tag4);
+            btn.setEnabled(true);
+        });
+        Button choice5 = findViewById(R.id.choiceButton5);
+        choice5.setOnClickListener(view -> {
+            tagList.add(tag5);
+            btn.setEnabled(true);
+        });
+        Button choice6 = findViewById(R.id.choiceButton6);
+        choice6.setOnClickListener(view -> {
+            tagList.add(tag6);
+            btn.setEnabled(true);
+        });
+        Button choice7 = findViewById(R.id.choiceButton7);
+        choice7.setOnClickListener(view -> {
+            tagList.add(tag7);
+            btn.setEnabled(true);
+        });
+        Button choice8 = findViewById(R.id.choiceButton8);
+        choice8.setOnClickListener(view -> {
+            tagList.add(tag8);
+            btn.setEnabled(true);
+        });
+        Button choice9 = findViewById(R.id.choiceButton9);
+        choice9.setOnClickListener(view -> {
+            tagList.add(tag9);
+            btn.setEnabled(true);
+        });
+        Button choice10 = findViewById(R.id.choiceButton10);
+        choice10.setOnClickListener(view -> {
+            tagList.add(tag10);
+            btn.setEnabled(true);
+        });
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.tvrec.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -69,26 +70,20 @@ public class ResultsActivity extends AppCompatActivity {
         layout.setVisibility(View.GONE);
         layout.setLayoutManager(new LinearLayoutManager(this));
 
-        getProgramsData = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Bundle bundle = getIntent().getExtras();
-                String genre = (String) bundle.getSerializable("GENRE");
+        getProgramsData = new Thread(() -> {
+            Bundle bundle = getIntent().getExtras();
+            String genre = (String) bundle.getSerializable("GENRE");
 
-                results = getProgramsFromGenre(genre);
-                programTagger.tagProgramsDescriptions(results);
-                tagsComparer.setInRecommendedOrder(results);
+            results = getProgramsFromGenre(genre);
+            programTagger.tagProgramsDescriptions(results);
+            tagsComparer.setInRecommendedOrder(results);
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        programAdapter = new ProgramAdapter(results);
-                        layout.setAdapter(programAdapter);
-                        progressBar.setVisibility(View.GONE);
-                        layout.setVisibility(View.VISIBLE);
-                    }
-                });
-            }
+            runOnUiThread(() -> {
+                programAdapter = new ProgramAdapter(results, getApplicationContext());
+                layout.setAdapter(programAdapter);
+                progressBar.setVisibility(View.GONE);
+                layout.setVisibility(View.VISIBLE);
+            });
         });
         getProgramsData.start();
 

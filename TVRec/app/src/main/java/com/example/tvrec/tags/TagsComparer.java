@@ -30,9 +30,6 @@ public class TagsComparer {
 
     private Program countWage(Program program){
         ArrayList<Tag> userTags = tagsHandler.readUserTagsFromPrefs();
-        userTags.forEach(tag -> {
-            System.out.println(tag.getWord() + " " + tag.getWage());
-        });
         int count = 0;
         double wage = 0.0;
         if(program.getTags() != null) {
@@ -46,6 +43,7 @@ public class TagsComparer {
 
             }
         }
+
         program.setTagsCount(count);
         program.setWage(wage);
         return program;

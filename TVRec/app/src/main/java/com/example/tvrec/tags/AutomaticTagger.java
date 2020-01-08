@@ -18,12 +18,13 @@ public class AutomaticTagger {
 
     public ArrayList<Tag> tagAutomatically(String description){
         ArrayList<Tag> tags = new ArrayList<>();
+        ArrayList<Tag> toReturn = new ArrayList<>();
         description = description.replaceAll("\\.","");
         description = description.replaceAll("\\)","");
         description = description.replaceAll("\\(","");
         String[] wordsList=description.split(" ");//Split the word from String
         if (description.contains("Brak programu w bazie"))
-            return null;
+            return toReturn;
 
         ArrayList<String> words = new ArrayList<>();
         for (String word: wordsList){
@@ -49,15 +50,14 @@ public class AutomaticTagger {
                 }
             }
             if(words.get(i) !="0") {
-                double wage = wrc / words.size();
-                tags.add(new Tag(words.get(i), wage));
+                tags.add(new Tag(words.get(i), 1.0));
             }
             wrc=1;
 
         }
         Collections.sort(tags,Collections.reverseOrder());
 
-        ArrayList<Tag> toReturn = new ArrayList<>();
+
         if(tags.size() > 10) {
             for (int i = 0; i < 10; i++) {
                 toReturn.add(tags.get(i));

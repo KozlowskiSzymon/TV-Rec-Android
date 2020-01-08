@@ -2,6 +2,8 @@ package com.example.tvrec.model;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +11,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.tvrec.R;
+import com.example.tvrec.utils.TagsHandler;
 
 import java.util.ArrayList;
 
 public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramViewHolder>{
 
+
     private ArrayList<Program> results;
+    private Context context;
+    private TagsHandler tagsHandler;
     @NonNull
     @Override
     public ProgramViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -33,12 +39,11 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramV
         programViewHolder.title.setText(program.title);
         programViewHolder.channel.setText(program.channel);
         programViewHolder.approvedButton.setOnClickListener(view -> {
-            program.getTags().forEach(tag -> {
-                System.out.println(tag.getWord() + " " + tag.getWage());
-            });
+            tagsHandler.addTagsFromApprovedRecommendation(program.getTags());
+
         });
         programViewHolder.rejectButton.setOnClickListener(view -> {
-            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++reject");
+            tagsHandler.removeTagsFromRejectedRecommendation(program.getTags());
         });
 
 
@@ -50,7 +55,6 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramV
     }
 
     public static class ProgramViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         public TextView title;
         public TextView channel;
         public Button approvedButton;
@@ -66,8 +70,10 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ProgramV
     }
 
 
-    public ProgramAdapter(ArrayList<Program> results) {
+    public ProgramAdapter(ArrayList<Program> results, Context context) {
         this.results = results;
+        this.context = context;
+        this.tagsHandler = new TagsHandler(context);
     }
 
 }
