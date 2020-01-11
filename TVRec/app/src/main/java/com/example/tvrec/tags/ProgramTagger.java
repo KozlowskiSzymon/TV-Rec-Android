@@ -22,13 +22,13 @@ public class ProgramTagger {
 
     private ArrayList<Tag> getTagsFromDescription(String description){
         ArrayList<Tag> textTags = new ArrayList<>();
-        textTags = automaticTagger.tagAutomatically(description);
+//        textTags = automaticTagger.tagAutomatically(description);
         //tagowanie z listy globalnej
-//        for (Tag tag: keyWordsList){
-//            if (description.contains(tag.getWord())) {
-//                    textTags.add(tag);
-//            }
-//        }
+        for (Tag tag: keyWordsList){
+            if (description.contains(tag.getWord())) {
+                    textTags.add(tag);
+            }
+        }
 
 
         return textTags;

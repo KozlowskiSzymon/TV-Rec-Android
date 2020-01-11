@@ -142,11 +142,12 @@ public class TagsHandler {
         for (Tag tag : list) {
             for (Tag listTag : userTags)
             if (listTag.getWord().equals(tag.getWord())) {
+                System.out.println(listTag.getWord() + " " + listTag.getWage());
                 double wage = listTag.getWage();
-                if (wage == 1)
+                if (wage == 1.0)
                     userTags.remove(listTag);
                 else
-                    listTag.setWage(listTag.getWage() - 1);
+                    listTag.setWage(listTag.getWage() - 1.0);
             }
         }
         tinydb.putListTags("userTags", userTags);
